@@ -1,0 +1,6 @@
+node_modules/
+.env
+tourist_data.db
+uploads/
+.DS_Store
+package-lock.json
