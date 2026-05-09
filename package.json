@@ -13,7 +13,7 @@
   "type": "commonjs",
   "dependencies": {
     "body-parser": "^2.2.2",
-    "cloudinary": "^2.0.0",
+    "cloudinary": "^1.41.0",
     "cors": "^2.8.6",
     "dotenv": "^16.4.0",
     "express": "^5.2.1",
