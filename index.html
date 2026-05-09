@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Explore India</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="icon.png">
+    <link rel="manifest" href="manifest.json">
+</head>
+
+<body>
+
+<!-- MAIN APP -->
+<div id="app">
+
+    <!-- HEADER -->
+    <div class="header">
+        <img src="icon.png" class="logo">
+        <h1>Explore India</h1>
+    </div>
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <button onclick="goToSync()">Go to Sync</button>
+        <select id="category-filter">
+            <option value="">All Categories</option>
+            <option value="Monument">Monument</option>
+            <option value="Temple">Temple</option>
+            <option value="Fort">Fort</option>
+            <option value="Palace">Palace</option>
+            <option value="Hill Station">Hill Station</option>
+            <option value="Beach">Beach</option>
+            <option value="Lake">Lake</option>
+        </select>
+        <input type="text" id="search" placeholder="Search by name or location">
+    </div>
+    
+     <!--user input form -->
+     <div class = "form-box">
+        <h3 id="form-title">Add / Edit Place</h3>
+        <input id="name" placeholder="Name"><br>
+        <input id="location" placeholder="Location"><br>
+        <select id="category">
+            <option value="Monument">Monument</option>
+            <option value="Temple">Temple</option>
+            <option value="Fort">Fort</option>
+            <option value="Palace">Palace</option>
+            <option value="Hill Station">Hill Station</option>
+            <option value="Beach">Beach</option>
+            <option value="Lake">Lake</option>
+            <option value="Caves">Caves</option>
+        </select><br>
+        <textarea id="description" placeholder="Description / History" rows="3"></textarea><br>
+        <input id="rating" type="number" step="0.1" placeholder="Rating (e.g. 4.5)"><br>
+        <input id="reviews" type="number" placeholder="Reviews Count"><br>
+        <input id="station" placeholder="Nearest Railway Station"><br>
+        <input id="airport" placeholder="Nearest Airport"><br>
+        
+        <div style="margin: 10px 0; text-align: left; padding: 0 5%;">
+            <label>Image Source:</label><br>
+            <input type="radio" name="img-src" value="url" checked onclick="toggleImgInput('url')"> URL
+            <input type="radio" name="img-src" value="file" onclick="toggleImgInput('file')"> Upload File
+        </div>
+        <input id="image_url" placeholder="Image URL">
+        <input id="image_file" type="file" style="display:none" accept="image/*">
+        <br>
+        <button onclick="addNewPlace()" id="form-btn">Save Place</button>
+     </div>
+
+     
+
+    <!-- GRID -->
+    <div class="grid" id="grid"></div>
+
+</div>
+
+<!-- DETAILS (OUTSIDE APP) -->
+<div id="details" class="hidden"></div>
+
+<!--  SYNC PAGE -->
+<div id="sync" class="hidden">
+    <h2>🔄 Sync Data</h2>
+    <button onclick="exportData()">Export Data</button>
+    <button onclick="document.getElementById('import-file').click()">Import Data</button>
+    <input type="file" id="import-file" style="display:none" accept=".json" onchange="importData(event)">
+    <br><br>
+    <button onclick="goHome()">⬅ Back</button>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
